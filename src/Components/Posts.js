@@ -8,28 +8,28 @@ class Notes extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      todos: this.props.todos
+      posts: this.props.posts
     }
   }
 
-  renderTodos(){
-    const { todos } = this.props
-    let notes = todos.map((todo, i) => {
+  renderPosts(){
+    const { posts } = this.props
+    let renderedPosts = posts.map((post, i) => {
       return (
         <div key={i} className='card m-3'>
-          <h2 className='pt-3'>{ todo.title }</h2>
-          <div className='card-body'>{ todo.description }</div>
+          <h2 className='pt-3'>{ post.title }</h2>
+          <div className='card-body'>{ post.description }</div>
         </div>
       )
     })
-    return notes
+    return renderedPosts
   }
 
   render(){
-    const { todos } = this.props
+    const { posts } = this.props
     return(
       <div>
-        { todos.length > 0 && this.renderTodos() }
+        { posts.length > 0 && this.renderPosts() }
       </div>
     )
   }
